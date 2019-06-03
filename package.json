@@ -30,6 +30,7 @@
     "cordova-plugin-geolocation": "4.0.1",
     "core-js": "^2.5.4",
     "ionic-native": "^2.9.0",
+    "org.apache.cordova.geolocation": "^0.3.6",
     "rxjs": "~6.5.1",
     "rxjs-compat": "^6.5.2",
     "tslib": "^1.9.0",
@@ -80,7 +81,8 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
-      }
+      },
+      "org.apache.cordova.geolocation": {}
     },
     "platforms": [
       "android",

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-
-
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
@@ -10,8 +8,8 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 })
 export class Tab1Page {
 
-  latitude: any;
-  longitude: any;
+  latitude: number;
+  longitude: number;
 
 
   constructor(public geolocation: Geolocation) {
@@ -23,6 +21,7 @@ export class Tab1Page {
     this.geolocation.getCurrentPosition().then((resp) => {
       this.latitude = resp.coords.latitude
       this.longitude = resp.coords.longitude
+
     }).catch((error) => {
       console.log('Erro ao capturar localização.', error);
     });
