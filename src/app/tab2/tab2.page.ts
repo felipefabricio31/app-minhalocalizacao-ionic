@@ -36,10 +36,9 @@ export class Tab2Page {
 
   getClima() {
 
-    console.log(this.latitude, this.longitude)
-    this.climaService.getClima2(this.latitude, this.longitude)
-      .subscribe(res => {
-        console.log(res);
+    this.climaService.getClima2()
+      .subscribe(resposta => {
+        //Retorno da API
       }, err => {
         console.log(err);
       });
