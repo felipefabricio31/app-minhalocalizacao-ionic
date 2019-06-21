@@ -11,14 +11,14 @@
   <ion-card>
     <ion-item>
       <ion-icon name="umbrella" slot="start"></ion-icon>
-      <ion-label>Municipio</ion-label>
+      <ion-label>{{clima.nomeCidade}} - {{clima.estado}}</ion-label>
     </ion-item>
 
     <ion-card-content>
       <!--Card 2-->
       <ion-card>
         <ion-card-header>
-          <ion-card-title>19º</ion-card-title>
+          <ion-card-title>{{clima.temperature}}º</ion-card-title>
           <ion-card-subtitle>Tipo do tempo</ion-card-subtitle>
         </ion-card-header>
 
@@ -26,37 +26,33 @@
           <br>
           <br>
           <br>
-          <br>
-          <br>
           <ion-grid>
             <!--Primeira Linha-->
             <ion-row>
               <ion-col>
-                <ion-label>Temperatura</ion-label>
-                <ion-input>20º</ion-input>
-              </ion-col>
-              <ion-col>
-                <ion-label>Temperatura</ion-label>
-                <ion-input>20º</ion-input>
-              </ion-col>
-              <ion-col>
-                <ion-label>Temperatura</ion-label>
-                <ion-input>20º</ion-input>
+                <ion-label>Velocidade km/h</ion-label>
+                <ion-input disabled>{{clima.velocidade}}km/h</ion-input>
               </ion-col>
             </ion-row>
-
+            <hr>
             <ion-row>
               <ion-col>
-                <ion-label>Temperatura</ion-label>
-                <ion-input>20º</ion-input>
+                <ion-label>Direção do vento</ion-label>
+                <ion-input disabled>{{clima.direcao}}</ion-input>
               </ion-col>
+            </ion-row>
+            <hr>
+            <ion-row>
               <ion-col>
-                <ion-label>Temperatura</ion-label>
-                <ion-input>20º</ion-input>
+                <ion-label>Direção do vento em graus</ion-label>
+                <ion-input disabled>{{clima.direcaoGraus}}º</ion-input>
               </ion-col>
+            </ion-row>
+            <hr>
+            <ion-row>
               <ion-col>
-                <ion-label>Temperatura</ion-label>
-                <ion-input>20º</ion-input>
+                <ion-label>Rajada do vento em km/h</ion-label>
+                <ion-input disabled>{{clima.Rajada}}km/h</ion-input>
               </ion-col>
             </ion-row>
 

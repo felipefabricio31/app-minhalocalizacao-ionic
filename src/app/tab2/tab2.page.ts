@@ -14,13 +14,19 @@ import { HttpModule } from '@angular/http';
 })
 export class Tab2Page {
 
-  public clima: Clima;
+  public clima = new Clima();
   private latitude: number;
   private longitude: number;
+  public id: number;
+  //public nomeCidade: string;
+  //public temperatura: number;
+  //public estado: string; //state
+  //public pais: string; //country - País da cidade.
 
   constructor(
-    private climaService: ClimaService,
-    public geolocation: Geolocation) { }
+    public climaService: ClimaService,
+    public geolocation: Geolocation
+    ) { }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -37,8 +43,40 @@ export class Tab2Page {
   getClima() {
 
     this.climaService.getClima2()
-      .subscribe(resposta => {
+      .subscribe(resp => {
         //Retorno da API
+        console.log(resp);
+
+        this.clima.nomeCidade = resp.name;
+        this.clima.estado = resp.state;
+        this.clima.temperature = resp.data[0].temperature.temperature;
+        this.clima.dataBr = resp.data[0].date_br.date_br;
+        this.clima.dataEua = resp.data[0].date.date;
+        
+        //
+        /****
+         * Dados de chuva.
+         * ******/
+        this.clima.precipitacaoMilimetros = resp.data[0].rain.precipitation;
+        
+        /****
+         * Dados de vento
+         * ******/
+        this.clima.precipitacaoMilimetros = resp.data[0].wind.precipitation;
+        //Intensidade do vento em km/h.
+        this.clima.velocidade = resp.data[0].wind.velocity;
+        //Direção do vento.
+        this.clima.direcao = resp.data[0].wind.direction;
+        //Direção do vento em graus.
+        this.clima.direcaoGraus = resp.data[0].wind.directiondegrees;
+        //Rajada do vento em km/h.
+        this.clima.RajadaVento = resp.data[0].wind.gust;
+
+
+        console.log(this.clima.direcao)
+        console.log(this.clima.direcaoGraus)
+        //console.log(this.clima.temperature)
+        //console.log(this.clima.dataBr)
       }, err => {
         console.log(err);
       });

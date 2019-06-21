@@ -15,10 +15,13 @@ const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+
 @Injectable({
     providedIn: 'root'
 })
 export class ClimaService {
+
+    public clima: Clima;
 
     constructor(private http: HttpClient) {
     }
@@ -33,11 +36,12 @@ export class ClimaService {
     }
 
     //Modelo de consumir API 02
-    getClima2(): Observable<Clima[]> {
-        return this.http.get<Clima[]>(`${URL_API}`)///${latitude},${longitude}`)
+    getClima2(): Observable<any> {
+        return this.http.get<any>(`${URL_API}`)///${latitude},${longitude}`)
             .pipe(
-                tap(clima => {
-                    return console.log('Retorno API --> ', clima);
+                tap(resp => {
+                    //return console.log('Retorno API --> ', clima);
+                    return resp;
                 }),
                 catchError(this.handleError('getClima -->', []))
             );
